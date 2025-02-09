@@ -3,15 +3,129 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - 页面未找到</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5;url=https://blog.mitufun.top">
+    <title>404 页面 - 页面未找到</title>
+    <link rel="icon" href="img/icon.png" type="image/png">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #63B3FF, #181E24);
+            color: white;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h1 {
+            font-size: 80px;
+            margin: 0;
+            color: #bdc3c7;
+            opacity: 0;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin: 20px 0;
+            color: #bdc3c7;
+            opacity: 0;
+            animation: fadeInUp 1.5s ease-in-out forwards;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 30px;
+            color: #bdc3c7;
+            opacity: 0;
+            animation: fadeInUp 2s ease-in-out forwards;
+        }
+
+        .bible-quote {
+            margin-top: 30px;
+            font-size: 16px;
+            color: #bdc3c7;
+            font-style: italic;
+            opacity: 0;
+            animation: fadeInUp 2.5s ease-in-out forwards;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            animation: spin 1.5s linear infinite;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
-<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
-  <main class="text-center">
-    <h1 class="text-6xl font-bold mb-4">404</h1>
-    <p class="text-xl mb-8">抱歉，您访问的页面不存在。</p>
-    <a href="/" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition">返回首页</a>
-  </main>
+<body>
+    <div class="container">
+        <h1>404</h1>
+        <h2>页面未找到</h2>
+        <div class="bible-quote">
+            “你们寻求我，若专心寻求，就必寻见。” — 耶利米书 29:13
+        </div>
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('h1, h2, p, .bible-quote');
+            elements.forEach((element, index) => {
+                setTimeout(() => {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }, index * 500); // 动画间隔逐渐增加
+            });
+        });
+    </script>
 </body>
 </html>
